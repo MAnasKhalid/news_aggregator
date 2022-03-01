@@ -57,6 +57,7 @@ class UserFavouriteNewsModelViewSet(ModelViewSet):
             # to avoid extra query and atleast implement try-except
             requestdata = {"news": article_id_param, "user": User.objects.get(email=user_param).id}
         else:
+            # anasbrain158
             requestdata = request.data
         favt_news_qs = UserFavouriteNews.objects.filter(news=requestdata['news'],user=requestdata['user'])
         if favt_news_qs:
